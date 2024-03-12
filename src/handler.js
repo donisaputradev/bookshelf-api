@@ -91,10 +91,16 @@ const getAllBooks = (request) => {
         )
     }
 
+    const simplifiedBooks = filteredBooks.map(book => ({
+        id: book.id,
+        name: book.name,
+        publisher: book.publisher
+    }))
+
     return {
         status: 'success',
         data: {
-            books: filteredBooks
+            books: simplifiedBooks
         }
     }
 }
